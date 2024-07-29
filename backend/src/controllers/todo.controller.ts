@@ -10,23 +10,24 @@ import { postSchema, reqParamasSchemaId } from "../schema/schema";
 import { todoList } from "../data/data";
 
 export const getAllTodoList = async (req: Request, res: Response) => {
-  const { query } = req.query;
+  const { item } = req.query;
   try {
-    if (query) {
+    if (item) {
       const filteredTasks = todoList.filter((task) =>
-        task.title.includes(query as string)
+        task.title.toLowerCase().includes((item as string).toLowerCase())
       );
-      return res.status(200).json(filteredTasks);
+      return res.status(200).json({ status: "success", data: filteredTasks });
     }
     return res.status(200).json({ status: "success", data: todoList });
   } catch (e) {
     log.error(e);
-    return res.status(403).json({
+    return res.status(500).json({
       status: "error",
-      error: ERRORS.NOT_FOUND,
+      error: ERRORS.INTERNAL_SERVER_ERROR,
     });
   }
 };
+
 export const addTodoList = async (req: Request, res: Response) => {
   const { error } = postSchema.validate(req.body);
   if (error) {
