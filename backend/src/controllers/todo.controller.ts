@@ -16,9 +16,9 @@ export const getAllTodoList = async (req: Request, res: Response) => {
       const filteredTasks = todoList.filter((task) =>
         task.title.toLowerCase().includes((item as string).toLowerCase())
       );
-      return res.status(200).json({ status: "success", data: filteredTasks });
+      return res.status(200).json({ message: "success", data: filteredTasks });
     }
-    return res.status(200).json({ status: "success", data: todoList });
+    return res.status(200).json({ message: "success", data: todoList });
   } catch (e) {
     log.error(e);
     return res.status(500).json({
@@ -105,7 +105,7 @@ export const deleteTodoList = async (req: Request, res: Response) => {
     }
 
     todoList.splice(taskIndex, 1);
-    res.status(204).send();
+    res.status(200).send({ message: "Deleted successfully" });
   } catch (e) {
     log.error(e);
     return res.status(500).json({

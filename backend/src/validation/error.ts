@@ -1,5 +1,5 @@
 enum ERRORS {
-  NOT_FOUND = "Unable to get the data",
+  NOT_FOUND = "Data not found",
   VALIDATION_ERROR = "VALIDATION_ERROR",
   INTERNAL_SERVER_ERROR = "INTERNAL_SERVER_ERROR",
 }
