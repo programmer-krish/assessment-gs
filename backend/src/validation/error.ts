@@ -1,0 +1,7 @@
+enum ERRORS {
+  NOT_FOUND = "Unable to get the data",
+  VALIDATION_ERROR = "VALIDATION_ERROR",
+  INTERNAL_SERVER_ERROR = "INTERNAL_SERVER_ERROR",
+}
+
+export { ERRORS };
