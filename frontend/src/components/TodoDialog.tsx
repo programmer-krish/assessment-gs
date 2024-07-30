@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { TextField, FormControlLabel, Checkbox, Button } from "@mui/material";
 import { useTodos } from "../context/TodoContext";
-import { Todo } from "../types/todo.interface";
+import { TodoDialogClose } from "../types/todo.interface";
 
-interface TodoDialogProps {
-  todo: Todo | null;
-  handleClose: () => void;
-}
-
-const TodoDialog: React.FC<TodoDialogProps> = ({ todo, handleClose }) => {
+const TodoDialog: React.FC<TodoDialogClose> = ({ todo, handleClose }) => {
   const { addTodo, updateTodo } = useTodos();
   const [title, setTitle] = useState("");
   const [done, setDone] = useState(false);

@@ -24,3 +24,8 @@ export interface TodoContextType {
   setSearchTerm: (term: string) => void;
   setTodos: (todos: Todo[]) => void;
 }
+
+export interface TodoDialogClose {
+  todo: Todo | null;
+  handleClose: () => void;
+}
