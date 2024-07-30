@@ -16,6 +16,8 @@ const TodoDialog: React.FC<TodoDialogClose> = ({ todo, handleClose }) => {
   }, [todo]);
 
   const handleSaveClick = () => {
+    if (title.trim() === "") return; // Prevent saving if title is empty
+
     const newTodo = { id: todo ? todo.id : Date.now(), title, done };
     if (todo) {
       updateTodo(newTodo);
@@ -33,6 +35,8 @@ const TodoDialog: React.FC<TodoDialogClose> = ({ todo, handleClose }) => {
         onChange={(e) => setTitle(e.target.value)}
         fullWidth
         margin="normal"
+        error={title.trim() === ""}
+        helperText={title.trim() === "" ? "Title is required" : ""}
       />
       <FormControlLabel
         control={
@@ -43,7 +47,11 @@ const TodoDialog: React.FC<TodoDialogClose> = ({ todo, handleClose }) => {
         }
         label="Done"
       />
-      <Button variant="contained" color="primary" onClick={handleSaveClick}>
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={handleSaveClick}
+        disabled={title.trim() === ""}>
         Save
       </Button>
     </div>
