@@ -9,6 +9,8 @@
 - PUT /api/todos/id - update a single todo by id
 - DELETE /api/todos/id - delete a single todo
 
+- Node version - 21.6.1
+
 ## backend up
 
 - npm i for deps
