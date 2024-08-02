@@ -2,12 +2,12 @@
 
 - Author - Krishnamohan
 
-## api
+## backend api
 
-- POST /api/todos - creates a new todo
-- GET /api/todos - gets list of todos
-- PUT /api/todos/id - update a single todo by id
-- DELETE /api/todos/id - delete a single todo
+- POST http://localhost:8000/api/todos
+- GET http://localhost:8000/api/todos
+- PUT http://localhost:8000/api/todos/:id
+- DELETE http://localhost:8000/api/todos/:id
 
 ## Version Details
 
