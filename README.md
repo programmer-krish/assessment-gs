@@ -9,6 +9,17 @@
 - PUT http://localhost:8000/api/todos/:id
 - DELETE http://localhost:8000/api/todos/:id
 
+## backend payload
+
+- POST
+- Payload {
+  "title" : "todoList",
+  "done": true //optional default its assign as false
+  }
+- PUT also same as POST payload
+- GET array of above objects
+- PUT and DELETE the pathparams are ids
+
 ## Version Details
 
 - Node version - 21.6.1
